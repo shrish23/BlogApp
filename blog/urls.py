@@ -2,6 +2,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 
 from posts.views import index, blog, post, search, post_delete, post_update, post_create
 
@@ -16,6 +17,7 @@ urlpatterns = [
     path('post/<id>/delete/', post_delete, name='post-delete'),
     path('tinymce/', include('tinymce.urls')),
     path('accounts/', include('allauth.urls')),
+    path('accounts/profile/$', TemplateView.as_view(template_name='profile.html'), name='user_profile'),
 ]
 
 if settings.DEBUG:

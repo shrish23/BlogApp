@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+
+  {% block content %}
+  <p>This is your profile, {{ user.username }}.</p>
+  <li class="nav-item">
+    <a href="{% url 'account_logout' %}" class="nav-link ">Logout</a>
+  </li>
+  {% endblock content %}

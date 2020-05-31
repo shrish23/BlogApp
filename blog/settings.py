@@ -5,6 +5,7 @@ import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parents[1]
 
+os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
@@ -28,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django_extensions',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -44,6 +46,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ACCOUNT_EMAIL_REQUIRED = True
 CCOUNT_EMAIL_VERIFICATION = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
+LOGIN_REDIRECT_URL = 'user_profile'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -171,3 +174,8 @@ AUTHENTICATION_BACKENDS = (
 )
 
 django_heroku.settings(locals())
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
