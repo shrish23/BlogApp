@@ -17,7 +17,7 @@ urlpatterns = [
     path('post/<id>/delete/', post_delete, name='post-delete'),
     path('tinymce/', include('tinymce.urls')),
     path('accounts/', include('allauth.urls')),
-    path('accounts/profile/$', TemplateView.as_view(template_name='profile.html'), name='user_profile'),
+    path('accounts/profile/', TemplateView.as_view(template_name='profile.html'), name='user_profile'),
 ]
 
 if settings.DEBUG:
