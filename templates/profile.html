@@ -2,8 +2,38 @@
 {% load static %}
 
   {% block content %}
-  <p>This is your profile, {{ user.username }}.</p>
-  <li class="nav-item">
-    <a href="{% url 'account_logout' %}" class="nav-link ">Logout</a>
-  </li>
+  <style>
+    .Entries {
+      padding-left: 250px;
+    }
+    .Entries p{
+      font-size: 30px;
+    }
+  </style>
+
+    <div class="profile">
+
+      <h1>Your Profile</h1>
+
+      <div class="image">
+        <img src="{{post.author.profile_picture.url}}" width="50%" >
+        <div class="Entries">
+          <br>
+          <p>Name:   {{user.username}} </p>
+
+          <p><i class="fa fa-calendar info"></i>DOB:     </p>
+          <p><i class="fa fa-envelope info"></i>Email:  {{user.email}} </p>
+
+          <p><i class="fa fa-phone info"></i>Phone: </p>
+
+          <p><i class="fa fa-home info"></i>Home:    </p>
+          
+          <br>
+          <br>
+          <br>
+
+        </div>
+      </div>
+
+    </div>
   {% endblock content %}
